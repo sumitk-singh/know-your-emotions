@@ -1,0 +1,15 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 5% "";
+}
+
+#input {
+  height: 30px;
+  width: 500px;
+}
+
+a {
+  text-decoration: none;
+  padding-inline-end: 20px;
+}
