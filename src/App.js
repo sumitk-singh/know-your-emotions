@@ -5,24 +5,26 @@ import "./styles.css";
 export default function App() {
   //emoji dictionary
   var emojiDictionary = {
-    A: "Grinning Face",
-    B: "Smileys & People",
-    C: "Face with Tears of Joy",
-    D: "Pleading Face",
-    E: "Smiling Face with Hearts"
+    "😀": "Grinning Face",
+    "😂": "Face with Tears of Joy",
+    "😉": "Winking Face",
+    "🤢": "Nauseated Face",
+    "😠": " Angry Face"
   };
 
-  var [emojiInput, newEmojiInput] = useState("");
-  var [meaning, newMeaning] = useState("translation will appear here...");
+  var [emoji, updateEmoji] = useState("");
+  var [meaning, updateMeaning] = useState("translation will appear here...");
 
   function emojiHandeler(event) {
-    newEmojiInput(event.target.value);
-    if (emojiInput in emojiDictionary) {
-      meaning = emojiDictionary[emojiInput];
-      newMeaning(meaning);
+    const userInputEmoji = event.target.value;
+    updateEmoji(userInputEmoji);
+
+    if (userInputEmoji in emojiDictionary) {
+      meaning = emojiDictionary[userInputEmoji];
+      updateMeaning(meaning);
     } else {
       meaning = "we don't find it";
-      newMeaning(meaning);
+      updateMeaning(meaning);
     }
   }
 
@@ -35,8 +37,13 @@ export default function App() {
         onChange={emojiHandeler}
         placeholder="Put the emoji here"
       ></input>
-      <h2>{emojiInput}</h2>
+      <h2>{emoji}</h2>
       <h2>{meaning} </h2>
+      <a>😀</a>
+      <a>😂</a>
+      <a>😉</a>
+      <a>🤢</a>
+      <a>😠</a>
     </div>
   );
 }
@@ -58,9 +65,3 @@ export default function App() {
 
 //step 6
 //push on git
-
-// "😀": "Grinning Face",
-//     "😃": "Smileys & People",
-//     "😂": "Face with Tears of Joy",
-//     "🥺": "Pleading Face",
-//     "🥰": "Smiling Face with Hearts"
